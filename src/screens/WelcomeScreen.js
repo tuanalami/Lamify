@@ -5,21 +5,21 @@ export default function WelcomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       
-      {/* LOGO ON TOP */}
+     
       <Image
         source={require('../../assets/logo.png')}
         style={styles.logo}
       />
 
-      {/* TITLE */}
+      
       <Text style={styles.title}>Welcome Tuané</Text>
 
-      {/* SUBTITLE */}
+     
       <Text style={styles.subtitle}>
         Discover & save your favorite recipes
       </Text>
 
-      {/* BUTTONS */}
+      
       <TouchableOpacity
         style={styles.primaryButton}
         onPress={() => navigation.navigate('Login')}
@@ -35,7 +35,7 @@ export default function WelcomeScreen({ navigation }) {
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigation.replace('MainTabs')} // prevents going back
+        onPress={() => navigation.replace('MainTabs')} 
       >
         <Text style={styles.guestText}>Continue as Guest</Text>
       </TouchableOpacity>

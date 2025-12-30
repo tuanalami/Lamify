@@ -27,9 +27,9 @@ class LoginScreen extends Component {
       const user = JSON.parse(userData);
 
       if (email === user.email && password === user.password) {
-        await AsyncStorage.setItem('userEmail', email); // save for profile
+        await AsyncStorage.setItem('userEmail', email); 
         Alert.alert('Success', 'Logged in successfully!');
-        this.props.navigation.replace('MainTabs'); // go to main app
+        this.props.navigation.replace('MainTabs'); 
       } else {
         Alert.alert('Error', 'Email or password is incorrect');
       }

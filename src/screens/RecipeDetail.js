@@ -1,4 +1,3 @@
-// src/screens/RecipeDetail.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,7 +7,6 @@ export default function RecipeDetail({ route, navigation }) {
   const { recipe } = route.params;
   const [liked, setLiked] = useState(false);
 
-  // Check if recipe is already in favorites
   useEffect(() => {
     const checkFavorite = async () => {
       try {
@@ -25,7 +23,7 @@ export default function RecipeDetail({ route, navigation }) {
 
   const toggleLike = async () => {
     try {
-      // 🔐 CHECK IF USER IS LOGGED IN
+      
       const email = await AsyncStorage.getItem('userEmail');
 
       if (!email) {

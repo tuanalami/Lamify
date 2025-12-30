@@ -42,7 +42,7 @@ export default function FavoritesScreen({ navigation }) {
           data={favorites}
           renderItem={renderItem}
           keyExtractor={(item) => item.id.toString()}
-          numColumns={1} // one per row
+          numColumns={1} 
           contentContainerStyle={{ padding: 10 }}
         />
       )}
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     width: '100%',
-    alignItems: 'center', // center horizontally
+    alignItems: 'center', 
     marginBottom: 20,
   },
   image: {

@@ -11,38 +11,12 @@ import {
 const { width } = Dimensions.get('window');
 
 const categories = [
-  {
-    id: '1',
-    title: 'Sweet',
-    key: 'sweet',
-    color: '#FFB6C1',
-  },
-  {
-    id: '2',
-    title: 'Meal',
-    key: 'meal',
-    color: '#87CEFA',
-  },
-  {
-    id: '3',
-    title: 'Breakfast',
-    key: 'breakfast',
-    color: '#FFA07A',
-  },
-  {
-    id: '4',
-    title: 'Lunch',
-    key: 'lunch',
-    color: '#98FB98',
-  },
-  {
-    id: '5',
-    title: 'Dinner',
-    key: 'dinner',
-    color: '#FFD700',
-  },
+  { id: '1', title: 'Sweet', key: 'sweet', color: '#FFB6C1' },
+  { id: '2', title: 'Meal', key: 'meal', color: '#87CEFA' },
+  { id: '3', title: 'Breakfast', key: 'breakfast', color: '#FFA07A' },
+  { id: '4', title: 'Lunch', key: 'lunch', color: '#98FB98' },
+  { id: '5', title: 'Dinner', key: 'dinner', color: '#FFD700' },
 ];
-
 
 export default function CategoriesScreen({ navigation }) {
   const renderItem = ({ item }) => (
@@ -68,7 +42,7 @@ export default function CategoriesScreen({ navigation }) {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingHorizontal: 10 }}
+        contentContainerStyle={styles.flatListContainer}
       />
     </View>
   );
@@ -87,8 +61,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#333',
   },
+  flatListContainer: {
+    paddingHorizontal: 10,
+    alignItems: 'center', 
+  },
   categoryCard: {
-    width: width - 20,
+    width: Math.min(width - 40, 500), 
     height: 140,
     borderRadius: 20,
     justifyContent: 'center',

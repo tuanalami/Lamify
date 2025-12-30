@@ -1,6 +1,6 @@
-// src/data/recipes.js
+
 export const recipes = [
-  // Cakes
+ 
   { id: 1, title: "Chocolate Cake", image: require('../../assets/cake1.jpg'), category: 'sweet', instructions: "Mix flour, sugar, cocoa, eggs, butter. Bake at 180°C for 35 minutes. Let cool and frost with chocolate ganache." },
   { id: 2, title: "Strawberry Cake", image: require('../../assets/cake2.jpg'), category: 'sweet', instructions: "Mix flour, sugar, eggs, butter, strawberries. Bake at 180°C for 30 minutes. Frost with strawberry cream." },
   { id: 3, title: "Vanilla Cake", image: require('../../assets/cake3.jpg'), category: 'sweet', instructions: "Mix flour, sugar, eggs, butter, vanilla. Bake at 180°C for 25 minutes. Frost with vanilla buttercream." },
@@ -11,8 +11,6 @@ export const recipes = [
   { id: 8, title: "Coffee Cake", image: require('../../assets/cake8.jpg'), category: 'sweet', instructions: "Mix flour, sugar, butter, coffee powder, eggs. Bake at 180°C for 30 minutes. Sprinkle with coffee glaze." },
   { id: 9, title: "Pineapple Cake", image: require('../../assets/cake9.jpg'), category: 'sweet', instructions: "Mix flour, sugar, eggs, butter, pineapple chunks. Bake at 180°C for 35 minutes. Frost with pineapple glaze." },
   { id: 10, title: "Blueberry Cake", image: require('../../assets/cake10.jpg'), category: 'sweet', instructions: "Mix flour, sugar, eggs, butter, blueberries. Bake at 180°C for 30 minutes. Frost with blueberry cream." },
-
-  // Foods (meals)
   { id: 11, title: "Scrambled Eggs", image: require('../../assets/food1.jpeg'), category: 'breakfast', instructions: "Cook rice, fry chicken with spices, mix with vegetables. Serve hot." },
   { id: 12, title: "Grilled Salmon", image: require('../../assets/food2.jpeg'), category: 'lunch', instructions: "Boil pasta, prepare tomato sauce with garlic and olive oil. Mix pasta with sauce and serve." },
   { id: 13, title: "Fish Tacos", image: require('../../assets/food3.jpeg'), category: 'meal', instructions: "Grill salmon with lemon and herbs. Serve with steamed vegetables and rice." },

@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'rea
 import { FontAwesome } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
-const cardWidth = width / 2 - 20; // 2 cards per row
+const cardWidth = width / 2 - 20; 
 
 export default function RecipeCard({ recipe, onPress }) {
   return (

@@ -1,34 +1,51 @@
 import React from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  useWindowDimensions
+} from 'react-native';
 import { recipes } from '../data/recipes';
 
-const numColumns = 3;
-const screenWidth = Dimensions.get('window').width;
-const itemWidth = screenWidth / numColumns - 10;
+const NUM_COLUMNS = 3;
+const SPACING = 10;
 
 export default function HomeScreen({ navigation }) {
-  const renderItem = ({ item }) => (
-   <TouchableOpacity
-  style={styles.itemContainer}
-  onPress={() => navigation.getParent()?.navigate('RecipeDetail', { recipe: item })}
->
-  <Image source={item.image} style={styles.image} />
-  <Text style={styles.title} numberOfLines={1}>{item.title}</Text>
-</TouchableOpacity>
+  const { width } = useWindowDimensions();
 
+  
+  const ITEM_SIZE =
+    (width - SPACING * (NUM_COLUMNS + 1)) / NUM_COLUMNS;
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={[styles.item, { width: ITEM_SIZE, height: ITEM_SIZE }]}
+      onPress={() =>
+        navigation.getParent()?.navigate('RecipeDetail', {
+          recipe: item
+        })
+      }
+    >
+      <Image source={item.image} style={styles.image} />
+      <Text style={styles.title} numberOfLines={1}>
+        {item.title}
+      </Text>
+    </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
-      {/* Title above recipes */}
-      <Text style={styles.recipesTitle}>RECIPES</Text>
-   
+      <Text style={styles.header}>RECIPES</Text>
+
       <FlatList
         data={recipes}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={numColumns}
-        contentContainerStyle={{ paddingBottom: 20 }}
+        numColumns={NUM_COLUMNS}
+        contentContainerStyle={{ paddingHorizontal: SPACING }}
       />
     </View>
   );
@@ -37,34 +54,31 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f2f2f2',
-    padding: 5
+    backgroundColor: '#f2f2f2'
   },
-   recipesTitle: {
+  header: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#333',
-    marginVertical: 15,
-    textAlign: 'center', // center the text
-   },
-  itemContainer: {
-    width: itemWidth,
-    margin: 5,
+    textAlign: 'center',
+    marginVertical: 12
+  },
+  item: {
+    margin: SPACING / 2,
+    backgroundColor: '#fff',
     borderRadius: 10,
     overflow: 'hidden',
-    backgroundColor: '#fff',
     elevation: 3
   },
   image: {
     width: '100%',
-    height: itemWidth,
+    height: '75%',
     resizeMode: 'cover'
   },
   title: {
-    padding: 5,
+    height: '25%',
+    textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 14,
-    textAlign: 'center'
+    fontSize: 13,
+    paddingTop: 4
   }
 });
-
